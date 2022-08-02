@@ -126,3 +126,7 @@ STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
     'PyCommerce/static',
 ]
+# media files config
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
