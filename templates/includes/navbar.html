@@ -40,6 +40,7 @@
 				{% for category in links%}
 				<a class="dropdown-item" href="{{category.get_url}}">{{category.category_name}} </a>
 				{% endfor %}
+				<a class="dropdown-item" href="{% url 'store' %}">All Products </a>
 			</div>
 		</div>  <!-- category-wrap.// -->
 	</div> <!-- col.// -->
