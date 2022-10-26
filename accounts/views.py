@@ -3,6 +3,7 @@ from .forms import RegistrationForm
 from .models import Account
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
+
 # For Email activation
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
@@ -26,10 +27,10 @@ def register(request):
                 email=email,
                 password=password,
             )
-            user.first_name=first_name
-            user.last_name=last_name
-            user.username=username
-            user.phone_number=phone_number
+            user.first_name = first_name
+            user.last_name = last_name
+            user.username = username
+            user.phone_number = phone_number
             user.save()
             # USER ACTIVATE TOKEN
             current_site = get_current_site(request)
@@ -40,7 +41,7 @@ def register(request):
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': default_token_generator.make_token(user),
             })
-            to_email = email
+            to_email = 'codefaculty3@gmail.com'
             send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
             messages.success(request, 'Your Account Created Successfully')
@@ -77,4 +78,4 @@ def logout(request):
 
 
 def activate(request):
-    return 
+    return
